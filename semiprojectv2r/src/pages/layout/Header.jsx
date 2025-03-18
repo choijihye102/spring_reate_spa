@@ -4,7 +4,7 @@ import React from 'react';
 const Nav = () => {
         return (
             <header>
-            <h1> SemiProject V1</h1>
+            <h1> SemiProject V2</h1>
             </header>
         )
     }
