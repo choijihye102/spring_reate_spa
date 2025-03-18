@@ -4,7 +4,7 @@ import "../styles/member.css"
 // main 함수 컴포넌트 정의.
 const Join = () => {
         return (
-            <main>
+            <main id="content">
                 <h2>회원가입</h2>
 
                 <form name="joinfrm" id="joinfrm" method="post" noValidate>
