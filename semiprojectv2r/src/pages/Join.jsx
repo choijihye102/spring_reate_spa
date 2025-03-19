@@ -18,7 +18,7 @@ const processJoinok =async(formValues)=>{
         fetch('http://localhost:8080/api/auth/signup', {
             method: 'post',
             headers: {
-                'contentType': 'application/json',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(formValues) // 테이터를 Json 문자열로 변환
         }).then(async  response=> {
