@@ -1,14 +1,27 @@
 import React, {useRef, useState} from 'react';
 import "../styles/member.css"
 
+// 폼 재설정 함수 - 외부로 빼냄
+const resetForm = (formJoinRef, setErrors) =>{
+    formJoinRef.current.reset();
+    setErrors({});
+}
+
 
 // main 함수 컴포넌트 정의.
 const Join = () => {
+        // 오류 사태를 위한 변수 선언
+        // errors : 상태를 저장하기 위한 변수
+        // serErrors :  errors 변수의 상태를 변경하는 함수
+
         // form 요소 참조를 위한 ref 변수 생성
         const formJoinRef = useRef(null);
 
         // 오류 상태를 위한 변수 선언
         const [errors, setErrors] = useState({});
+
+        // 폼 재설정 처리
+        const handleReset =() => resetForm(formJoinRef, setErrors);
 
 
         //폼 제출시 데이터 처리 및 유효성 검사
@@ -134,7 +147,7 @@ const Join = () => {
                         <button type="submit" className="btn btn-primary">
                             <i className="fa-sharp fa-solid fa-file-signature"></i>입력완료
                         </button>
-                        <button type="reset" className="btn btn-danger">
+                        <button type="reset" className="btn btn-danger" onClick={handleReset}>
                             <i className="fa-sharp fa-solid fa-eraser"></i>다시입력
                         </button>
                     </div>
