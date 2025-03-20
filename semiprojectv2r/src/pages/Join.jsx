@@ -62,6 +62,8 @@ const Join = () => {
             const formData = new FormData(formJoinRef.current);
             const formValues = Object.fromEntries(formData.entries());
 
+            console.log(formValues);
+
             // 전체 폼 유효성 검사
             const formErrors = validateJoinForm(formValues);
 
