@@ -1,5 +1,6 @@
 package com.example.jennie.semiprojectv2.repository;
 ;
+import com.example.jennie.semiprojectv2.domain.Member;
 import com.example.jennie.semiprojectv2.domain.MemberDTO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -17,4 +18,8 @@ public interface MemberRepository {
 
     @Select("select count(*) from members where email = #{email}")
     int countByEmail(String email);
+
+    @Select("select * from members where userid = #{userid}")
+    Member findByUserid(String userid);
+
 }

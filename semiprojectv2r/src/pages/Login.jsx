@@ -68,9 +68,9 @@ const Login = () => {
                 }
 
                 // 비밀번호 검사
-                if (!values.password) {
+                if (!values.passwd) {
                     formErrors.passwd = '비밀번호를 입력하세요!';
-                } else if (values.password.length < 6) {
+                } else if (values.passwd.length < 6) {
                     formErrors.passwd = '비밀번호는 6자 이상이어야 합니다 !';
                 }
 
@@ -93,10 +93,10 @@ const Login = () => {
 
                         <div className="form-floating my-2">
                             <input type="password" name="passwd" id="passwd"
-                                className={`form-control ${errors.passwd ? 'is-invalid':''}`}
-                                    required placeholder="비밀번호"/>
-                            <label htmlFor="passwd" className="form-label"> 비밀번호 </label>
-                             {errors.passwd&& <div className="invalid-feedback">{errors.passwd}</div>}
+                                   className={`form-control ${errors.passwd ? 'is-invalid' : ''}`}
+                                   required placeholder="비밀번호" />
+                            <label htmlFor="passwd" className="form-label">비밀번호</label>
+                            {errors.passwd && <div className="invalid-feedback">{errors.passwd}</div>}
                         </div>
 
                         <div className="my-2 d-flex justify-content-center">

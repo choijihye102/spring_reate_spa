@@ -1,5 +1,6 @@
 package com.example.jennie.semiprojectv2.service;
 
+import com.example.jennie.semiprojectv2.domain.Member;
 import com.example.jennie.semiprojectv2.domain.MemberDTO;
 import com.example.jennie.semiprojectv2.repository.MemberRepository;
 import com.example.jennie.semiprojectv2.service.MemberService;
@@ -29,7 +30,16 @@ public class MemberServiceImpl implements MemberService {
 
         }
 
+        @Override
+        public Member loginMember(MemberDTO member) {
 
+                Member findMember = memberMapper.findByUserid(member.getUserid());
+
+                if (findMember == null || !findMember.getPasswd().equals(member.getPasswd())) {
+                        throw new IllegalStateException ("Service에서 호출 => 아이디나 비번이 일치하지 않습니다. ");
+                }
+                return findMember;
+        }
 }
 
 
