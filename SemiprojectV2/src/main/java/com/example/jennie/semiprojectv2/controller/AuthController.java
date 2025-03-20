@@ -44,14 +44,14 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<?>  loginok(@RequestBody MemberDTO member) {
+    public ResponseEntity<?>  loginok(@RequestBody User user) {
         ResponseEntity<?> response = ResponseEntity.internalServerError().build();
 
-        log.info("submit된 로그인 정보 : {}", member);
+        log.info("submit된 로그인 정보 : {}", user);
 
         try {
             // 정상 처리시 상태코드 200으로 응답
-            Member loginUser = memberService.loginMember(member);
+            User loginUser = userService.loginUser(user);
             // 세션 처리
             response = ResponseEntity.ok().build();
 
