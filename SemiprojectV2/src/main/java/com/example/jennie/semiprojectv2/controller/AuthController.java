@@ -2,7 +2,9 @@ package com.example.jennie.semiprojectv2.controller;
 
 import com.example.jennie.semiprojectv2.domain.Member;
 import com.example.jennie.semiprojectv2.domain.MemberDTO;
+import com.example.jennie.semiprojectv2.domain.User;
 import com.example.jennie.semiprojectv2.service.MemberService;
+import com.example.jennie.semiprojectv2.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
@@ -16,16 +18,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/auth")
 public class AuthController {
     private final MemberService memberService;
+    private final UserService userService;
 
     @PostMapping("/signup")
-    public ResponseEntity<?>  joinok(@RequestBody MemberDTO member) {
+    public ResponseEntity<?>  joinok(@RequestBody User user) {
         ResponseEntity<?> response = ResponseEntity.internalServerError().build();
 
-        log.info("submit된 내정보 : {}", member);
+        log.info("submit된 내정보 : {}", user);
 
         try {
             // 정상 처리시 상태코드 200으로 응답
-            memberService.newMember(member);
+            userService.newUser(user);
             response = ResponseEntity.ok().build();
         } catch (IllegalStateException e) {
             //  비정상 처리시 상태코드 400으로 응답 - 클라이언트 잘못으로 인한 오류 일때
