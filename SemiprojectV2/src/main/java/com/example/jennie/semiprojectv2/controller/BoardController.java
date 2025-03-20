@@ -24,6 +24,7 @@ public class BoardController {
         log.info("submit된 게시글 정보 : {}", board);
 
         try {
+
             boardService.newBoard(board);
             response = ResponseEntity.ok().build();
 
